@@ -8,7 +8,7 @@
  * 4. In Vercel dashboard → Settings → Environment Variables, add:
  *    - RESEND_API_KEY = your Resend API key
  *    - RECIPIENT_EMAIL = the email address to receive form submissions
- *      (e.g., your private inbox — NOT kontakt@cellx.pl unless you want that)
+ *      (e.g., your private inbox — NOT kontakt@retrofit24.pl unless you want that)
  * 5. Deploy to Vercel
  */
 
@@ -39,7 +39,7 @@ export default async function handler(req, res) {
   }
 
   // CORS: restrict to own origin
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://homefit.cellx.pl';
+  const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://retrofit24.pl';
   const origin = req.headers.origin;
   if (origin && origin !== allowedOrigin) {
     return res.status(403).json({ error: 'Forbidden' });
@@ -98,7 +98,7 @@ export default async function handler(req, res) {
   const htmlBody = `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
       <h2 style="color: #1d1d1f; border-bottom: 3px solid #7ed957; padding-bottom: 10px;">
-        Nowe zapytanie — CellX Home Fit+
+        Nowe zapytanie — Retrofit24 Home Fit+
       </h2>
       <table style="width: 100%; border-collapse: collapse; margin-top: 16px;">
         <tr><td style="padding: 8px 12px; font-weight: bold; color: #555; width: 160px;">Imię:</td><td style="padding: 8px 12px;">${escapeHtml(name)}</td></tr>
@@ -116,7 +116,7 @@ export default async function handler(req, res) {
       </div>
       ` : ''}
       <p style="margin-top: 24px; font-size: 12px; color: #999;">
-        Wiadomość wysłana z formularza na homefit.cellx.pl
+        Wiadomość wysłana z formularza na retrofit24.pl
       </p>
     </div>
   `;
@@ -129,7 +129,7 @@ export default async function handler(req, res) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'CellX Home Fit+ <noreply@cellx.pl>',
+        from: 'Retrofit24 Home Fit+ <noreply@retrofit24.pl>',
         to: [recipientEmail],
         reply_to: email,
         subject,

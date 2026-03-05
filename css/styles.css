@@ -1,5 +1,5 @@
 /* ============================================
-   CELLX HOME FIT+ — Energy Noir Design System
+   RETROFIT24 HOME FIT+ — Energy Noir Design System
    ============================================ */
 
 /* --- Custom Properties --- */
@@ -968,13 +968,69 @@ h3 {
   height: auto;
 }
 
+/* City dot pulse */
 .city-dot {
-  animation: cityPulse 2s ease-in-out infinite;
+  animation: cityPulse 2.5s ease-in-out infinite;
 }
 
 @keyframes cityPulse {
-  0%, 100% { r: 6; opacity: 1; }
-  50% { r: 10; opacity: 0.6; }
+  0%, 100% { r: 5; opacity: 1; }
+  50% { r: 8; opacity: 0.7; }
+}
+
+/* Outer ring expanding pulse */
+.city-pulse {
+  animation: ringPulse 3s ease-out infinite;
+}
+
+@keyframes ringPulse {
+  0% { r: 14; opacity: 0.3; }
+  70% { r: 22; opacity: 0; }
+  100% { r: 22; opacity: 0; }
+}
+
+/* Staggered animation delays for city groups */
+.map-city { opacity: 0; animation: mapCityIn 0.6s ease-out forwards; }
+.map-city:nth-child(7) { animation-delay: 0.1s; }
+.map-city:nth-child(8) { animation-delay: 0.25s; }
+.map-city:nth-child(9) { animation-delay: 0.4s; }
+.map-city:nth-child(10) { animation-delay: 0.55s; }
+.map-city:nth-child(11) { animation-delay: 0.7s; }
+.map-city:nth-child(12) { animation-delay: 0.9s; }
+
+@keyframes mapCityIn {
+  from { opacity: 0; transform: scale(0.5); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+/* HQ city stronger pulse */
+.map-city-hq .city-dot {
+  animation: hqPulse 2s ease-in-out infinite;
+}
+
+@keyframes hqPulse {
+  0%, 100% { r: 7; opacity: 1; }
+  50% { r: 10; opacity: 0.8; }
+}
+
+.map-city-hq .city-pulse {
+  animation: hqRingPulse 2.5s ease-out infinite;
+}
+
+@keyframes hqRingPulse {
+  0% { r: 18; opacity: 0.35; }
+  70% { r: 30; opacity: 0; }
+  100% { r: 30; opacity: 0; }
+}
+
+/* Connection line dash animation */
+.map-line {
+  stroke-dashoffset: 0;
+  animation: lineDash 20s linear infinite;
+}
+
+@keyframes lineDash {
+  to { stroke-dashoffset: -200; }
 }
 
 .cities-grid {
@@ -994,6 +1050,12 @@ h3 {
   font-size: 0.9rem;
   font-weight: var(--fw-semi);
   border: 1px solid rgba(255,255,255,0.04);
+  transition: border-color 0.3s, background 0.3s;
+}
+
+.city-tag:hover {
+  border-color: rgba(126,217,87,0.2);
+  background: rgba(126,217,87,0.04);
 }
 
 .city-tag::before {

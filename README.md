@@ -1,6 +1,6 @@
-# CellX Home Fit+ — Landing Page
+# Retrofit24 Home Fit+ — Landing Page
 
-Landing page for CellX Home Fit+, a Polish energy storage add-on that lets homeowners expand existing PV installations with battery storage without replacing the inverter. Targets southern Poland (Rzeszow, Krakow, Katowice, Wroclaw, Tarnow, Nowy Sacz, Kielce).
+Landing page for Retrofit24 Home Fit+, a Polish energy storage add-on that lets homeowners expand existing PV installations with battery storage without replacing the inverter. Targets southern Poland (Rzeszow, Krakow, Katowice, Wroclaw, Tarnow, Nowy Sacz, Kielce).
 
 ## Tech Stack
 
@@ -11,7 +11,7 @@ Landing page for CellX Home Fit+, a Polish energy storage add-on that lets homeo
 ## Project Structure
 
 ```
-cellx_lp/
+retrofit24/
   index.html              # Single-page landing (all sections inline)
   css/styles.css           # Design system, layout, animations, responsive
   js/main.js               # Scroll observers, nav, counters, FAQ accordion, form
@@ -55,12 +55,12 @@ The form POSTs to `/api/send`, which is a Vercel serverless function that forwar
 
 **To set up Resend:**
 1. Create an account at [resend.com](https://resend.com)
-2. Add and verify your sending domain (e.g., `cellx.pl`)
+2. Add and verify your sending domain (e.g., `retrofit24.pl`)
 3. Generate an API key
 4. Add `RESEND_API_KEY` and `RECIPIENT_EMAIL` as Vercel environment variables
 
 **Email format:**
-- **From:** `CellX Home Fit+ <noreply@cellx.pl>`
+- **From:** `Retrofit24 Home Fit+ <noreply@retrofit24.pl>`
 - **Subject:** `Nowe zapytanie Home Fit+ — [Name] z [City]`
 - **Reply-To:** submitter's email
 - Includes all form fields in a formatted HTML table

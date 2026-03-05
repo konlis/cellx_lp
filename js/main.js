@@ -1,5 +1,5 @@
 /**
- * CellX Home Fit+ — Main JavaScript
+ * Retrofit24 Home Fit+ — Main JavaScript
  * Scroll observers, nav behavior, animated counters, FAQ accordion, form handling
  */
 (function () {
