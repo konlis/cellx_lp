@@ -1,6 +1,6 @@
-# Retrofit24 Home Fit+ — Landing Page
+# Retrofit24 — Landing Page
 
-Landing page for Retrofit24 Home Fit+, a Polish energy storage add-on that lets homeowners expand existing PV installations with battery storage without replacing the inverter. Targets southern Poland (Rzeszow, Krakow, Katowice, Wroclaw, Tarnow, Nowy Sacz, Kielce).
+Landing page for **Home Fit+** by Retrofit24 — magazyn energii dla właścicieli paneli fotowoltaicznych. Dodaj baterię do istniejącej instalacji PV bez wymiany falownika, 5 200 zł taniej niż hybryda. Obsługujemy całe Podkarpacie.
 
 ## Tech Stack
 
@@ -53,40 +53,38 @@ The contact form requires the Vercel serverless function to send emails (won't w
 
 The form POSTs to `/api/send`, which is a Vercel serverless function that forwards submissions via the Resend API.
 
+**Form fields:** Imię, Nazwisko, Email, Miasto, Wiadomość
+
 **To set up Resend:**
 1. Create an account at [resend.com](https://resend.com)
 2. Add and verify your sending domain (e.g., `retrofit24.pl`)
 3. Generate an API key
 4. Add `RESEND_API_KEY` and `RECIPIENT_EMAIL` as Vercel environment variables
 
-**Email format:**
-- **From:** `Retrofit24 Home Fit+ <noreply@retrofit24.pl>`
-- **Subject:** `Nowe zapytanie Home Fit+ — [Name] z [City]`
-- **Reply-To:** submitter's email
-- Includes all form fields in a formatted HTML table
-
 ## Page Sections
 
 1. Sticky navigation with mobile hamburger
 2. Hero with canvas lightning animation + product image
-3. Trust strip (stats: cost savings, install time, standby power, efficiency)
-4. Context intro (why battery storage)
-5. Core benefits (7 cards from client requirements)
-6. Comparison table (retrofit vs hybrid inverter — cost, standby, installation)
+3. Trust strip (stats: savings, install time, standby power, efficiency)
+4. Context intro (why battery storage — consumer pain points)
+5. Core benefits (7 cards — compatibility, savings, fast install, low standby, voltage fix, subsidy protection, EMS grant)
+6. CTA with product image and savings highlight (5 200 zł)
 7. How it works (3 steps)
-8. Product showcase (tech specs grid)
-9. Mobile app preview
-10. Service area (SVG map of southern Poland)
-11. FAQ accordion (10 questions)
-12. Contact form with validation
-13. Footer
+8. Mobile app preview
+9. Service area (SVG map of województwo podkarpackie)
+10. FAQ accordion (11 questions)
+11. Contact form with validation
+12. Footer with two contacts
+
+## Service Area
+
+Województwo podkarpackie: Rzeszów (siedziba), Przemyśl, Stalowa Wola, Mielec, Krosno, Jasło.
 
 ## SEO
 
 - `<html lang="pl">`, semantic HTML5, single H1
-- JSON-LD structured data: Product, FAQPage, LocalBusiness (7 cities), BreadcrumbList
+- JSON-LD structured data: Product, FAQPage, LocalBusiness (6 cities), BreadcrumbList
 - Open Graph meta tags
-- Semantic `<table>` for comparison data
 - Polish alt texts on all images
 - `robots.txt` + `sitemap.xml`
 
@@ -97,3 +95,8 @@ The form POSTs to `/api/send`, which is a Vercel serverless function that forwar
 - **Font:** Montserrat (400/600/800)
 - **Animations:** Canvas lightning bolts, scroll reveals, animated counters, floating product image
 - **Responsive:** Mobile (375px), tablet (768px), desktop (1440px)
+
+## Contact
+
+- **Łukasz Adamski** — l.adamski@retrofit24.pl | +48 720 284 284
+- **Mateusz Matula** — m.matula@retrofit24.pl | +48 794 206 781
