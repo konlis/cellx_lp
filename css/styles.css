@@ -1867,14 +1867,21 @@ h3 {
 
 .privacy-back {
   display: inline-block;
-  font-size: 0.85rem;
-  color: var(--green);
-  margin-bottom: 24px;
-  transition: opacity var(--transition-fast);
+  margin-top: 40px;
+  padding: 12px 28px;
+  font-size: 0.9rem;
+  font-weight: var(--fw-semi);
+  color: var(--gray-400);
+  border: 1px solid var(--gray-600);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all var(--transition-fast);
 }
 
 .privacy-back:hover {
-  opacity: 0.7;
+  color: var(--green);
+  border-color: var(--green);
+  transform: translateY(-2px);
 }
 
 .privacy-page h1 {
@@ -1911,7 +1918,7 @@ h3 {
 
 .privacy-page a {
   color: var(--green);
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .privacy-page .last-updated {
