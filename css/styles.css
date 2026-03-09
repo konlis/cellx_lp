@@ -1,5 +1,5 @@
 /* ============================================
-   RETROFIT24 HOME FIT+ — Energy Noir Design System
+   PV MAGAZYN HOME FIT+ — Energy Noir Design System
    ============================================ */
 
 /* --- Custom Properties --- */
@@ -681,7 +681,7 @@ h3 {
   border-radius: 0 var(--radius-lg) 0 0;
 }
 
-.comparison th.col-retrofit {
+.comparison th.col-pvmagazyn {
   color: var(--green);
 }
 

@@ -1,5 +1,5 @@
 /**
- * Retrofit24 Hero Lightning Canvas Animation
+ * PV Magazyn Hero Lightning Canvas Animation
  * Generates animated lightning bolts in green/blue representing energy flow
  */
 (function () {

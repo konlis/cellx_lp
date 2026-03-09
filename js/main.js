@@ -1,5 +1,5 @@
 /**
- * Retrofit24 Home Fit+ — Main JavaScript
+ * PV Magazyn Home Fit+ — Main JavaScript
  * Scroll observers, nav behavior, animated counters, FAQ accordion, form handling
  */
 (function () {

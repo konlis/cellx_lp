@@ -1,6 +1,6 @@
-# Retrofit24 — Landing Page
+# PV Magazyn — Landing Page
 
-Landing page for **Home Fit+** by Retrofit24 — magazyn energii dla właścicieli paneli fotowoltaicznych. Dodaj baterię do istniejącej instalacji PV bez wymiany falownika, 5 200 zł taniej niż hybryda. Obsługujemy całe Podkarpacie.
+Landing page for **Home Fit+** by PV Magazyn — magazyn energii dla właścicieli paneli fotowoltaicznych. Dodaj baterię do istniejącej instalacji PV bez wymiany falownika, 5 200 zł taniej niż hybryda. Obsługujemy całe Podkarpacie.
 
 ## Tech Stack
 
@@ -11,7 +11,7 @@ Landing page for **Home Fit+** by Retrofit24 — magazyn energii dla właścicie
 ## Project Structure
 
 ```
-retrofit24/
+pv-magazyn/
   index.html              # Single-page landing (all sections inline)
   css/styles.css           # Design system, layout, animations, responsive
   js/main.js               # Scroll observers, nav, counters, FAQ accordion, form
@@ -57,7 +57,7 @@ The form POSTs to `/api/send`, which is a Vercel serverless function that forwar
 
 **To set up Resend:**
 1. Create an account at [resend.com](https://resend.com)
-2. Add and verify your sending domain (e.g., `retrofit24.pl`)
+2. Add and verify your sending domain (e.g., `pv-magazyn.pl`)
 3. Generate an API key
 4. Add `RESEND_API_KEY` and `RECIPIENT_EMAIL` as Vercel environment variables
 
@@ -98,5 +98,5 @@ Województwo podkarpackie: Rzeszów (siedziba), Przemyśl, Stalowa Wola, Mielec,
 
 ## Contact
 
-- **Łukasz Adamski** — l.adamski@retrofit24.pl | +48 720 284 284
-- **Mateusz Matula** — m.matula@retrofit24.pl | +48 794 206 781
+- **Łukasz Adamski** — l.adamski@pv-magazyn.pl | +48 720 284 284
+- **Mateusz Matula** — m.matula@pv-magazyn.pl | +48 794 206 781
