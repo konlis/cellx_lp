@@ -16,7 +16,9 @@ pv-magazyn/
   css/styles.css           # Design system, layout, animations, responsive
   js/main.js               # Scroll observers, nav, counters, FAQ accordion, form
   js/lightning.js           # Canvas hero animation (energy lightning bolts)
+  js/cookies.js            # RODO cookie consent (Google Ads + Meta Pixel)
   api/send.js              # Vercel serverless function — Resend email
+  polityka-prywatnosci.html # Privacy policy page (RODO)
   assets/images/           # Product photos, app screenshot
   robots.txt
   sitemap.xml
@@ -53,7 +55,7 @@ The contact form requires the Vercel serverless function to send emails (won't w
 
 The form POSTs to `/api/send`, which is a Vercel serverless function that forwards submissions via the Resend API.
 
-**Form fields:** Imię, Nazwisko, Email, Miasto, Wiadomość
+**Form fields:** Imię, Nazwisko, Telefon, Email, Miasto, Wiadomość
 
 **To set up Resend:**
 1. Create an account at [resend.com](https://resend.com)
@@ -79,6 +81,16 @@ The form POSTs to `/api/send`, which is a Vercel serverless function that forwar
 ## Service Area
 
 Województwo podkarpackie: Rzeszów (siedziba), Przemyśl, Stalowa Wola, Mielec, Krosno, Jasło.
+
+## Cookie Consent & Tracking
+
+- Custom RODO-compliant cookie consent (`js/cookies.js`) — zero dependencies
+- 3 categories: Niezbędne (always), Analityczne (Google Ads), Marketingowe (Meta Pixel)
+- Scripts injected only after explicit consent
+- Conversion tracking on form submit: Google `conversion` + Meta `Lead`
+- Footer link to reopen cookie settings anytime
+- Privacy policy page: `polityka-prywatnosci.html`
+- Configure tracking IDs in `js/cookies.js` (lines 9-11)
 
 ## SEO
 

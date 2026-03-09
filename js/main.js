@@ -230,6 +230,16 @@
           statusEl.className = 'form-status success';
           statusEl.style.display = 'block';
           form.reset();
+
+          // Conversion tracking (fires only if user consented)
+          if (window.gtag && window.CookieConsentConfig) {
+            window.gtag('event', 'conversion', {
+              send_to: window.CookieConsentConfig.adsConversionLabel
+            });
+          }
+          if (window.fbq) {
+            window.fbq('track', 'Lead');
+          }
         } else {
           throw new Error('Server error');
         }

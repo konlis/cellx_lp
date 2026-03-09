@@ -1569,6 +1569,329 @@ h3 {
   to { transform: rotate(360deg); }
 }
 
+/* === Cookie Consent === */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  background: var(--black-card);
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding: 20px;
+  transform: translateY(100%);
+  transition: transform var(--transition-medium);
+}
+
+.cookie-banner--visible {
+  transform: translateY(0);
+}
+
+.cookie-banner__content {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.cookie-banner__content p {
+  flex: 1;
+  min-width: 280px;
+  font-size: 0.85rem;
+  color: var(--gray-200);
+  line-height: 1.6;
+}
+
+.cookie-banner__content a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.cookie-banner__buttons {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  padding: 10px 20px;
+  font-family: var(--font-main);
+  font-size: 0.85rem;
+  font-weight: var(--fw-semi);
+  border-radius: var(--radius-sm);
+  border: none;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  white-space: nowrap;
+}
+
+.cookie-btn--accept {
+  background: var(--green);
+  color: var(--black-deep);
+}
+
+.cookie-btn--accept:hover {
+  background: var(--green-dark);
+}
+
+.cookie-btn--reject {
+  background: transparent;
+  color: var(--gray-200);
+  border: 1px solid var(--gray-600);
+}
+
+.cookie-btn--reject:hover {
+  border-color: var(--gray-200);
+  color: var(--white);
+}
+
+.cookie-btn--settings {
+  background: transparent;
+  color: var(--green);
+  border: 1px solid var(--green);
+}
+
+.cookie-btn--settings:hover {
+  background: rgba(126,217,87,0.1);
+}
+
+/* Cookie Modal */
+.cookie-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+.cookie-modal--visible {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cookie-modal__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+}
+
+.cookie-modal__dialog {
+  position: relative;
+  background: var(--black-card);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-lg);
+  width: 90%;
+  max-width: 520px;
+  max-height: 85vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  transition: transform 0.3s;
+}
+
+.cookie-modal--visible .cookie-modal__dialog {
+  transform: scale(1);
+}
+
+.cookie-modal__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cookie-modal__header h3 {
+  font-size: 1.1rem;
+  font-weight: var(--fw-bold);
+}
+
+.cookie-modal__close {
+  background: none;
+  border: none;
+  color: var(--gray-400);
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 4px 8px;
+  line-height: 1;
+  transition: color var(--transition-fast);
+}
+
+.cookie-modal__close:hover {
+  color: var(--white);
+}
+
+.cookie-modal__body {
+  padding: 16px 24px;
+}
+
+.cookie-modal__category {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.cookie-modal__category:last-child {
+  border-bottom: none;
+}
+
+.cookie-modal__category-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cookie-modal__category-header strong {
+  font-size: 0.95rem;
+}
+
+.cookie-badge {
+  display: inline-block;
+  margin-left: 8px;
+  padding: 2px 8px;
+  font-size: 0.7rem;
+  font-weight: var(--fw-semi);
+  color: var(--green);
+  border: 1px solid rgba(126,217,87,0.3);
+  border-radius: var(--radius-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.cookie-modal__desc {
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+}
+
+.cookie-modal__footer {
+  display: flex;
+  gap: 10px;
+  padding: 16px 24px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  flex-wrap: wrap;
+}
+
+.cookie-modal__footer .cookie-btn {
+  flex: 1;
+  text-align: center;
+}
+
+/* Toggle Switch */
+.toggle-switch {
+  position: relative;
+  display: inline-block;
+  width: 44px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.toggle-switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-switch__slider {
+  position: absolute;
+  inset: 0;
+  background: var(--gray-800);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background var(--transition-fast);
+}
+
+.toggle-switch__slider::before {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  left: 3px;
+  bottom: 3px;
+  background: var(--white);
+  border-radius: 50%;
+  transition: transform var(--transition-fast);
+}
+
+.toggle-switch input:checked + .toggle-switch__slider {
+  background: var(--green);
+}
+
+.toggle-switch input:checked + .toggle-switch__slider::before {
+  transform: translateX(20px);
+}
+
+@media (max-width: 768px) {
+  .cookie-banner__content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cookie-banner__buttons {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .cookie-btn {
+    width: 100%;
+  }
+}
+
+/* === Privacy Policy Page === */
+.privacy-page {
+  padding: 120px 0 80px;
+  background: var(--black-deep);
+}
+
+.privacy-page h1 {
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  margin-bottom: 16px;
+}
+
+.privacy-page h2 {
+  font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+  margin-top: 40px;
+  margin-bottom: 12px;
+  color: var(--green);
+}
+
+.privacy-page h3 {
+  font-size: 1.05rem;
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.privacy-page p,
+.privacy-page li {
+  font-size: 0.92rem;
+  color: var(--gray-200);
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.privacy-page ul {
+  list-style: disc;
+  padding-left: 24px;
+  margin-bottom: 16px;
+}
+
+.privacy-page a {
+  color: var(--green);
+  text-decoration: underline;
+}
+
+.privacy-page .last-updated {
+  font-size: 0.8rem;
+  color: var(--gray-600);
+  margin-bottom: 32px;
+}
+
 /* --- Print --- */
 @media print {
   .navbar, .hero-canvas, .mobile-nav { display: none; }
