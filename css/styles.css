@@ -1454,6 +1454,22 @@ h3 {
   color: var(--gray-600);
 }
 
+.footer-bottom-links {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer-bottom-links a {
+  color: var(--gray-600);
+  transition: color var(--transition-fast);
+}
+
+.footer-bottom-links a:hover {
+  color: var(--green);
+}
+
 /* --- Scroll Animations --- */
 .reveal {
   opacity: 0;
