@@ -1,23 +1,14 @@
 /**
  * PV Magazyn — RODO Cookie Consent
- * Zero-dependency cookie consent for Google Ads + Meta Pixel
+ * Zero-dependency cookie consent with Consent Mode v2 for GTM
  */
 (function () {
   'use strict';
 
   // ─── Configuration ───
-  var GOOGLE_ADS_ID = 'AW-123456789';
-  var GOOGLE_ADS_CONVERSION_LABEL = 'AbCdEfGhIjKlMnOp';
-  var META_PIXEL_ID = '123456789012345';
-
   var STORAGE_KEY = 'cookieConsent';
   var CONSENT_VERSION = 1;
   var CONSENT_MAX_AGE_MS = 365 * 24 * 60 * 60 * 1000; // 12 months
-
-  // Export for form conversion tracking
-  window.CookieConsentConfig = {
-    adsConversionLabel: GOOGLE_ADS_ID + '/' + GOOGLE_ADS_CONVERSION_LABEL
-  };
 
   // ─── Consent storage ───
   function getConsent() {
@@ -50,42 +41,23 @@
     return true;
   }
 
-  // ─── Script injection ───
-  var gtagInjected = false;
-  var metaInjected = false;
-
-  function injectGoogleAds() {
-    if (gtagInjected) return;
-    gtagInjected = true;
-
-    var script = document.createElement('script');
-    script.async = true;
-    script.src = 'https://www.googletagmanager.com/gtag/js?id=' + GOOGLE_ADS_ID;
-    document.head.appendChild(script);
-
-    window.dataLayer = window.dataLayer || [];
-    window.gtag = function () { window.dataLayer.push(arguments); };
-    window.gtag('js', new Date());
-    window.gtag('config', GOOGLE_ADS_ID);
-  }
-
-  function injectMetaPixel() {
-    if (metaInjected) return;
-    metaInjected = true;
-
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-
-    window.fbq('init', META_PIXEL_ID);
-    window.fbq('track', 'PageView');
-  }
-
+  // ─── Consent Mode v2 update ───
   function applyConsent(consent) {
-    if (consent.analytics) injectGoogleAds();
-    if (consent.marketing) injectMetaPixel();
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { window.dataLayer.push(arguments); }
+
+    gtag('consent', 'update', {
+      'ad_storage': consent.analytics ? 'granted' : 'denied',
+      'ad_user_data': consent.analytics ? 'granted' : 'denied',
+      'ad_personalization': consent.marketing ? 'granted' : 'denied',
+      'analytics_storage': consent.analytics ? 'granted' : 'denied'
+    });
+
+    window.dataLayer.push({
+      'event': 'consent_update',
+      'consent_analytics': consent.analytics,
+      'consent_marketing': consent.marketing
+    });
   }
 
   // ─── UI: Banner ───
@@ -172,7 +144,7 @@
                 '<span class="toggle-switch__slider"></span>' +
               '</label>' +
             '</div>' +
-            '<p class="cookie-modal__desc">Google Ads (gtag.js) \u2014 mierzenie konwersji i skuteczno\u015bci kampanii reklamowych.</p>' +
+            '<p class="cookie-modal__desc">Google Ads \u2014 mierzenie konwersji i skuteczno\u015bci kampanii reklamowych.</p>' +
           '</div>' +
           '<div class="cookie-modal__category">' +
             '<div class="cookie-modal__category-header">' +
@@ -231,7 +203,8 @@
   }
 
   function onRejectOptional() {
-    saveConsent(false, false);
+    var consent = saveConsent(false, false);
+    applyConsent(consent);
     hideBanner();
   }
 
