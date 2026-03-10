@@ -38,13 +38,13 @@ export default async function handler(req, res) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  // CORS: restrict to own origin
-  const allowedOrigin = process.env.ALLOWED_ORIGIN || 'https://pv-magazyn.pl';
+  // CORS: restrict to own origin (www and non-www)
+  const allowedOrigins = ['https://pv-magazyn.pl', 'https://www.pv-magazyn.pl'];
   const origin = req.headers.origin;
-  if (origin && origin !== allowedOrigin) {
+  if (origin && !allowedOrigins.includes(origin)) {
     return res.status(403).json({ error: 'Forbidden' });
   }
-  res.setHeader('Access-Control-Allow-Origin', allowedOrigin);
+  res.setHeader('Access-Control-Allow-Origin', origin || allowedOrigins[0]);
 
   // Rate limiting
   const clientIp = req.headers['x-forwarded-for']?.split(',')[0]?.trim() || 'unknown';
