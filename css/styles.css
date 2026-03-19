@@ -431,6 +431,87 @@ h3 {
   fill: var(--gray-600);
 }
 
+/* Badge "polski produkt" */
+.cert-item--badge {
+  border-left: 1px solid rgba(255,255,255,0.1);
+  padding-left: clamp(20px, 4vw, 48px);
+}
+
+.polski-producent-logo {
+  height: 40px;
+  width: auto;
+  display: block;
+  filter: brightness(1.1);
+}
+
+.polski-producent-logo--footer {
+  height: 32px;
+}
+
+/* --- Product Intro --- */
+.product-intro {
+  background: var(--black-deep);
+  padding-bottom: 40px;
+}
+
+.product-intro-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.product-intro-card {
+  background: var(--black-card);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  border: 1px solid rgba(255,255,255,0.06);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-intro-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--green), var(--blue));
+  opacity: 0.6;
+}
+
+.product-intro-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-sm);
+  background: rgba(126,217,87,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.product-intro-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--green);
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.product-intro-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 12px;
+}
+
+.product-intro-card p {
+  font-size: 0.95rem;
+  color: var(--gray-400);
+  line-height: 1.7;
+}
+
 /* --- Section Common --- */
 .section {
   padding: var(--section-padding) 0;
@@ -1534,6 +1615,8 @@ h3 {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
+  .product-intro-grid { grid-template-columns: 1fr; }
 
   .context-cards { grid-template-columns: 1fr; }
 
