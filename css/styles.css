@@ -403,40 +403,7 @@ h3 {
   font-weight: var(--fw-semi);
 }
 
-.cert-row {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: clamp(20px, 4vw, 48px);
-  margin-top: 36px;
-  padding-top: 36px;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  flex-wrap: wrap;
-}
-
-.cert-item {
-  font-size: 0.8rem;
-  font-weight: var(--fw-bold);
-  color: var(--gray-600);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-}
-
-.cert-item svg {
-  width: 20px;
-  height: 20px;
-  fill: var(--gray-600);
-}
-
-/* Badge "polski produkt" */
-.cert-item--badge {
-  border-left: 1px solid rgba(255,255,255,0.1);
-  padding-left: clamp(20px, 4vw, 48px);
-}
-
+/* Polski Producent logo — shared */
 .polski-producent-logo {
   height: 40px;
   width: auto;
@@ -444,8 +411,22 @@ h3 {
   filter: brightness(1.1);
 }
 
+/* Logo in navbar */
+.polski-producent-logo--nav {
+  height: 24px;
+  flex-shrink: 0;
+}
+
+/* Logo in footer */
 .polski-producent-logo--footer {
   height: 32px;
+}
+
+/* Footer logo group — flex container for both logos */
+.footer-logo-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 
 /* --- Product Intro --- */
@@ -1511,24 +1492,6 @@ h3 {
 
 .footer-contact a:hover { color: var(--green); }
 
-.footer-certs {
-  display: flex;
-  justify-content: center;
-  gap: 24px;
-  padding: 20px 0;
-  border-top: 1px solid rgba(255,255,255,0.06);
-  border-bottom: 1px solid rgba(255,255,255,0.06);
-  margin-bottom: 20px;
-  flex-wrap: wrap;
-}
-
-.footer-certs span {
-  font-size: 0.75rem;
-  color: var(--gray-600);
-  font-weight: var(--fw-bold);
-  letter-spacing: 0.1em;
-}
-
 .footer-bottom {
   text-align: center;
   font-size: 0.78rem;
@@ -1603,6 +1566,7 @@ h3 {
     text-align: center;
   }
 
+  .footer-logo-group { justify-content: center; }
   .footer-links { justify-content: center; }
   .footer-contact { text-align: center; }
 }
@@ -1610,6 +1574,7 @@ h3 {
 @media (max-width: 768px) {
   .nav-links { display: none; }
   .hamburger { display: flex; }
+  .polski-producent-logo--nav { height: 20px; }
 
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
